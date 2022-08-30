@@ -3,6 +3,7 @@ import style from '../main.module.css';
 import styled from './todo.module.css';
 import { Form } from 'react-bootstrap';
 import axios from 'axios';
+import BiCheck from 'react-icons/bi'
 
 const CheckBox = (props) => {
     const todo_id = props.todo_id;
@@ -25,10 +26,28 @@ const CheckBox = (props) => {
 
     return (
         <>
-            <input type="checkbox" onClick={onClickCheck} 
-                checked={check}
-                onChange={onChangeCheck}
-            />
+            {
+                check ?
+                <input type="checkbox" onClick={onClickCheck} 
+                    checked={check}
+                    onChange={onChangeCheck}
+                    className={styled.checkedbox}
+                />
+                :
+                <input type="checkbox" onClick={onClickCheck} 
+                    checked={check}
+                    onChange={onChangeCheck}
+                    className={styled.checkbox}
+                />
+            }
+            <div style={{width: '100%', }} key={props.description}>
+                {
+                    !check ? 
+                    <p style={{margin : 5, textAlign : 'left'}} key={props.id}>{props.description}</p>
+                    :
+                    <p style={{margin : 5, textAlign : 'left', color : '#D9D9D9', textDecoration : 'line-through'}} key={props.id}>{props.description}</p>
+                }
+            </div>
         </>
     );
 }
@@ -95,16 +114,18 @@ function Todo(){
                     todoList.map(function(todo){
                         return (
                             <div className={styled.todo} key={todo.id}>
-                                <CheckBox todo_id={todo.id} complete={todo.complete} key={todo.complete}/>
-                                <div style={{width: '100%', }} key={todo.description}>
-                                    <p style={{margin : 5, textAlign : 'left'}} key={todo.id}>{todo.description}</p>
-                                </div>
-                                
+                                <CheckBox todo_id={todo.id} description={todo.description} complete={todo.complete} key={todo.complete} />
                                 <button 
                                     value={todo.id} 
                                     key={todo.id} 
                                     onClick={onClickDelete}  
-                                    style={{background: 'white', color : '#FFAB72', border: 'none', fontSize: '20px', fontFamily: 'initial'}}
+                                    style={{
+                                        background: 'white', 
+                                        color : '#FFAB72', 
+                                        border: 'none', 
+                                        fontSize: '20px', 
+                                        fontFamily: 'initial'
+                                    }}
                                 >
                                     X
                                 </button>

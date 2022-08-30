@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from './login.module.css';
 import axios from 'axios';
-import logo from './logo.png';
+import logo from './logo.svg';
 import SignUp from './signup_modal';
 
 function Login() {
@@ -56,9 +56,9 @@ function Login() {
     return(
         <>
             <div className={styled.box}>
-                <div style={{marginBottom: '30px'}}>
-                    <p style={{position: 'absolute', fontSize : '60px', fontFamily : 'KyoboHand', paddingTop : '6.5%', paddingLeft : '2%'}}>Calenfornia</p>
-                    <img src={logo} style={{width: '40%' }}/>
+                <div style={{marginBottom: '30px',position : 'relative',}}>
+                    <p style={{fontSize: '60px', fontFamily : 'KyoboHand', position : 'absolute', left : '50%', top: '85%', transform : 'translate(-50%, -50%)'}}>Calenfornia</p>
+                    <img src={logo}/>
                 </div>
                 <div onKeyDown={handleKeyPress} style={{width : '25vw', minWidth : '330px'}}>
                     <input 

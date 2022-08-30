@@ -94,21 +94,6 @@
     margin-left: 10px;
 }
 
-.subButton {
-    width: 115px;
-    height: 40px;
-    color: #FFAB72;
-    border: none;
-    font-weight: bold;
-    font-size: 20px;
-
-    background: #fff;
-    border-radius: 10px;
-
-    margin-right: 10px;
-    margin-left: 10px;
-}
-
 .yajasoo {
     font-size: 30px;
     font-family : 'KyoboHand';
@@ -124,6 +109,34 @@
     border: 1px solid #FFAB72;
     border-radius: 0 0 10px 10px;
 }
+.subButton{
+    display: inline-block;
+    margin:10px;
+    margin-left: 10px;
+    color: #FFAB72;
+    width: 115px;
+    height: 40px;
+    background: #FFFFFF;
+    font-weight: bold;
+    font-size: 20px;
+    border:0;
+    outline:0;
+    border-radius: 5px;
+}
+.subButton:hover{
+    display: inline-block;
+    margin:10px;
+    margin-left: 10px;
+    width: 115px;
+    height: 40px;
+    color: #ffffff;
+    background: #FFAB72;;
+    font-weight: bold;
+    font-size: 20px;
+    border:0;
+    outline:0;
+    border-radius: 5px;
+}
 
 .information{
     display: flex;
@@ -137,4 +150,7 @@
     margin: 10px;
     text-align: left;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
