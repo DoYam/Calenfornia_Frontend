@@ -1,0 +1,57 @@
+.canvas{
+    font-family: 'KyoboHand';
+    height: 23vw;
+    min-height: 300px;
+}
+.selectBody{
+    display: flex;
+    justify-content: space-around;
+}
+.selctBox{
+    min-width: 300px;
+    min-height: 50px;
+    width: 30vw;
+    height: 7vh;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.subjectList{
+    display: flex;
+}
+.subjectCol{
+    margin: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    display : flex; 
+    justify-content: space-between;
+}
+.save {
+    width: 115px;
+    height: 40px;
+    color: white;
+    border: none;
+    font-weight: bold;
+    font-size: 20px;
+    background: #FFAB72;
+    border-radius: 10px;
+}
+.add {
+    width: 115px;
+    height: 40px;
+    color: #FFAB72;
+    border: none;
+    font-weight: bold;
+    font-size: 20px;
+    background: #fff;
+    border-radius: 10px;
+}
+.add:disabled {
+    color: #fdcdad;
+}
+.subjectBox{
+    height: 75%;
+    overflow: scroll;
+    padding-top: 5px;
+    padding-bottom: 25px;
+}

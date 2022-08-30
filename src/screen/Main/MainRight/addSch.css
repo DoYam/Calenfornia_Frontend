@@ -1,0 +1,97 @@
+/* .modal-content {
+    width: 900px;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} */
+
+.mb-3 {
+    width: 410px;
+    display: inline-block;
+
+    border: 1px solid #FFAB72;
+    border-radius: 10px;
+
+    padding: 10px;
+    margin: 10px;
+}
+
+
+.select_box {
+    background-color: #FFFBF7;
+    border: 1px solid #FFAB72;
+    border-radius: 5px;
+
+    width: 250px;
+    margin: 5px;
+    float: right;
+    
+}
+
+/* 버튼 */
+.btn-box {
+    text-align: center;
+}
+
+.btn1{
+    display: inline-block;
+    margin:10px;
+
+    width: 114px;
+    height: 36px;
+    left: 599px;
+    top: 726px;
+    color: #FFAB72;
+
+    background: #FFFFFF;
+    border:0;
+    outline:0;
+    border-radius: 5px;
+}
+.btn1:hover{
+    display: inline-block;
+    margin:10px;
+
+    width: 114px;
+    height: 36px;
+    left: 599px;
+    top: 726px;
+    color: #ffffff;
+
+    background: #FFAB72;;
+    border:0;
+    outline:0;
+    border-radius: 5px;
+}
+.btn2{
+    display: inline-block;
+    margin:10px;
+
+    width: 114px;
+    height: 36px;
+    left: 599px;
+    top: 726px;
+    color: #FFAB72;
+
+    background: #FFFFFF;
+    border:0;
+    outline:0;
+    border-radius: 5px;
+}
+.btn2:hover{
+    display: inline-block;
+    margin:10px;
+
+    width: 114px;
+    height: 36px;
+    left: 599px;
+    top: 726px;
+    color: #ffffff;
+
+    background: #FFAB72;
+    border:0;
+    outline:0;
+    border-radius: 5px;
+}

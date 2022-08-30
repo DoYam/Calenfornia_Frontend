@@ -1,0 +1,110 @@
+.calBody {
+    background-color: rgb(255, 255, 255);
+    
+    font-family: 'KyoboHand';
+    min-height: 650px;
+    height: 92vh;
+    min-width: 1100px;
+    width: 82vw;
+    overflow: scroll;
+}
+
+/* 헤더 칸 시작 */
+.header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+
+    width: 1159px;
+}
+
+.year {
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 61px;
+    letter-spacing: -0.02em;
+    color: #000000;
+}
+
+.month {
+    font-weight: 600;
+    font-size: 50px;
+    line-height: 61px;
+    letter-spacing: -0.02em;
+    color: #000000;
+
+    padding-left: 40px;
+    padding-right: 40px;
+
+    /* background-color: green; */
+}
+
+.plusSchedule {
+    /* position: absolute; */
+
+    box-sizing: border-box;
+    background-color: white;
+
+    width: 130px;
+    height: 30px;
+
+    border: 1px solid #ffffff;
+    margin-top: 15px;
+
+    font-weight: 700;
+    font-size: 18px;
+
+    color: #FFAB72;
+}
+
+/* 헤더 칸 끝 */
+
+
+/* 요일 칸 시작*/
+/* 요일 칸 레이아웃 */
+.col {
+    border-right: 1px solid #666666;
+    border-left: 1px solid #666666;
+    border-bottom: 1px solid #666666;
+    border-top: 1px solid #666666;  
+    height: 5%;
+    text-align: center;
+    justify-content: center;
+}
+
+/* 요일 칸 끝*/
+
+
+/* 달력칸 시작 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tr {
+    width: 100%;
+    height: 150px;
+    vertical-align : top;
+}
+
+.td {
+    border-right: 1px solid #666666;
+    border-left: 1px solid #666666;
+    border-bottom: 1px solid #666666;
+
+    width: 12.9%;
+
+    font-weight: 500;
+    font-size: 24px;
+
+    vertical-align : top;
+
+    color: #666666;
+
+}
+
+.td.not-valid {
+    visibility: hidden;
+}
+

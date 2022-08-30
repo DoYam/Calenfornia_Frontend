@@ -1,0 +1,31 @@
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+.todo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.inputStyle{
+    background: rgba(255, 214, 170, 0.1);
+    border: 3px solid #FEBA95;
+    border-radius : 10px;
+    font-family : KyoboHand;
+    height : 35px;
+}
+.inputStyle:focus{
+    border-color: #FFAA7C;
+    box-shadow: 0 0 0 0.1rem #FFAA7C;
+}
+.button{
+    border: none;
+    font-size: 30px;
+    background-color: #fff;
+    color: #FFAB72;
+    font-family: initial;
+}
