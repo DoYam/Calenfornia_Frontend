@@ -121,7 +121,7 @@
     font-size: 20px;
     border:0;
     outline:0;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 .subButton:hover{
     display: inline-block;
@@ -130,12 +130,12 @@
     width: 115px;
     height: 40px;
     color: #ffffff;
-    background: #FFAB72;;
+    background: #FFAB72;
     font-weight: bold;
     font-size: 20px;
     border:0;
     outline:0;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .information{

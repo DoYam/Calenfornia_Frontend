@@ -94,8 +94,9 @@ const RenderCells = ({currentMonth, info}) => {
                     //오늘 날짜 빨간표시
                     (format(currentMonth, 'M') === nowMonth) && (formattedDate === nowDate)
                     ? <div>
-                        <div style={{background:'red', color : 'white', width : '20%'}}>
-                        {formattedDate}</div>
+                        <div style={{background:'#FFAB72', color : 'white', borderRadius : '100%', width : '35px', textAlign : 'center'}}>
+                            {formattedDate}
+                        </div>
                         <div>
                             <div>
                              {/* 일정 추가 부분-1 */}
@@ -127,7 +128,11 @@ const RenderCells = ({currentMonth, info}) => {
                         </div>
                     </div>
                     : <div>
-                        {formattedDate}
+                        {
+                            i == 0 ?
+                            <p style={{color : '#FF0000'}}>{formattedDate}</p>
+                            : formattedDate
+                        }
                         <div>
                             <div>
                             {/* 일정 추가 부분-2 */}

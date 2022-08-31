@@ -48,7 +48,7 @@
     background: #FFFFFF;
     border:0;
     outline:0;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 .btn1:hover{
     display: inline-block;
@@ -63,7 +63,7 @@
     background: #FFAB72;;
     border:0;
     outline:0;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 .btn2{
     display: inline-block;
@@ -78,7 +78,7 @@
     background: #FFFFFF;
     border:0;
     outline:0;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 .btn2:hover{
     display: inline-block;
@@ -93,5 +93,5 @@
     background: #FFAB72;
     border:0;
     outline:0;
-    border-radius: 5px;
+    border-radius: 10px;
 }
