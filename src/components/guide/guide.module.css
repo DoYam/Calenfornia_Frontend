@@ -1,0 +1,17 @@
+
+.information{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.informationForm{
+    width: 650px;
+    height: 280px;
+    border: 1px solid #FFAB72;
+    margin: 10px;
+    text-align: left;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

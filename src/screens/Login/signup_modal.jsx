@@ -110,9 +110,7 @@ const SignUp = (props) => {
                 <button 
                     disabled={!checkCertify}
                     className={styled.modalButton}
-                    onClick={()=>{
-                        onClickSignUp() 
-                    }}
+                    onClick={onClickSignUp}
                 >
                     가입하기
                 </button>

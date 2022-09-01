@@ -1,8 +1,8 @@
 import React, {  } from 'react';
 import style from './main.module.css';
 import { useEffect } from 'react';
-import MainRightScreen from './main_right_screen';
-import MainListScreen from './main_list_screen';
+import MainRightScreen from './main_right';
+import MainListScreen from './main_left';
 
 function Main() {
 

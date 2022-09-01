@@ -32,15 +32,21 @@
 }
 
 .inputStyle{
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
     background: rgba(255, 214, 170, 0.1);
-    border: 3px solid #FEBA95;
+    border: 3px solid #fcc7ab;
     border-radius : 10px;
     font-family : KyoboHand;
-    height : 35px;
+    width: 80%;
+    margin-bottom: 5px; 
+    padding: 5px 5px;
 }
 .inputStyle:focus{
-    border-color: #FFAA7C;
-    box-shadow: 0 0 0 0.1rem #FFAA7C;
+    border: 3px solid #f99e6e;
 }
 .button{
     border: none;
@@ -48,4 +54,11 @@
     background-color: #fff;
     color: #FFAB72;
     font-family: initial;
+}
+.delete{
+    background : white;
+    color : #FFAB72;
+    border: none; 
+    font-size : 20px;
+    font-family : initial;
 }

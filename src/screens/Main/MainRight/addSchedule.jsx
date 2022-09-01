@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from './addSch.css';
 import axios from 'axios';
 import { Form, Modal } from 'react-bootstrap';
-import subject from '../MainLeft/subjectList';
+import subject from '../../../components/selectSubject/subjectList';
 import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css';
 import RenderCells  from "./Calendar.jsx";

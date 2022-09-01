@@ -29,6 +29,9 @@
 .inputStyle:disabled{
     background: #feefe7;
 }
+.inputStyle:focus{
+    border: 3px solid #f99e6e;
+}
 .loginButton{
     color: #fff;
     background-color: #FFAB72;
@@ -41,9 +44,6 @@
 }
 .loginButton:disabled{
     background-color: #fdccad;
-}
-.inputStyle:focus{
-    border: 3px solid #f99e6e;
 }
 .button{
     background-color: #FFAB72;

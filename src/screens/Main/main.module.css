@@ -15,47 +15,6 @@
     font-size: 45px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
-.listSlide{
-    background-color:#FFD6AA;
-    height: 92vh;
-    overflow: scroll;
-}
-
-.listBox{
-    position: relative;
-    height: 280px;
-    width: 220px;
-    background-color: #FFFFFF;
-    box-shadow: 4px 4px 10px #AD988A;
-    border-radius: 10px;
-    margin: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.listBox_subject{
-    position: relative;
-    width: 220px;
-    min-height: 280px;
-    background-color: #FFFFFF;
-    box-shadow: 4px 4px 10px #AD988A;
-    border-radius: 10px;
-    margin: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-.listBox_myTodo{
-    position: relative;
-    width: 220px;
-    min-height: 280px;
-    background-color: #FFFFFF;
-    box-shadow: 4px 4px 10px #AD988A;
-    border-radius: 10px;
-    margin: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
 .boxHeader{
     height: 45px;
     background: #FFF3E6;
@@ -78,6 +37,51 @@
     align-items: center;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
+.listSlide{
+    background-color:#FFD6AA;
+    height: 92vh;
+    overflow: scroll;
+}
+.listBox{
+    position: relative;
+    height: 280px;
+    width: 220px;
+    background-color: #FFFFFF;
+    box-shadow: 4px 4px 10px #AD988A;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.listBoxClicked{
+    position: relative;
+    width: 220px;
+    min-height: 280px;
+    background-color: #FFFFFF;
+    box-shadow: 4px 4px 10px #AD988A;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.listOpenButton {
+    width: 100%;
+    height: 40px;
+    bottom: 0%;
+    position: absolute;
+    background: #FFF3E6;
+    border: 1px solid #FFAB72;
+    border-radius: 0 0 10px 10px;
+}
+
+.yajasoo {
+    font-size: 30px;
+    font-family : 'KyoboHand';
+    margin-right: 10px;
+    margin-left: 10px;
+}
 
 .logOut {
     width: 115px;
@@ -94,21 +98,6 @@
     margin-left: 10px;
 }
 
-.yajasoo {
-    font-size: 30px;
-    font-family : 'KyoboHand';
-    margin-right: 10px;
-    margin-left: 10px;
-}
-
-.button {
-    width: 100%;
-    bottom: 0%;
-    position: absolute;
-    background: #FFF3E6;
-    border: 1px solid #FFAB72;
-    border-radius: 0 0 10px 10px;
-}
 .subButton{
     display: inline-block;
     margin:10px;
@@ -136,21 +125,4 @@
     border:0;
     outline:0;
     border-radius: 10px;
-}
-
-.information{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.informationForm{
-    width: 650px;
-    height: 280px;
-    border: 1px solid #FFAB72;
-    margin: 10px;
-    text-align: left;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }

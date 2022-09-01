@@ -1,5 +1,5 @@
 import React, {  } from 'react';
-import style from '../main.module.css';
+import style from '../../screens/Main/main.module.css';
 import styled from './selectSubject.module.css';
 import { useState, useEffect } from 'react';
 import {MdSettings, } from 'react-icons/md';
