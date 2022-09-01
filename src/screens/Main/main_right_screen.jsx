@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import style from './main.module.css';
 import Calendar from './MainRight/Calendar.jsx';
 import logout from './MainRight/logout_func.jsx';
-import guide0 from './guide0.svg';
-import guide1 from './guide1.png';
+import guide0 from '../../assets/images/guide0.svg';
+import guide1 from '../../assets/images/guide1.png';
 import { Modal } from 'react-bootstrap';
 
 function MainRightScreen () {

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from './login.module.css';
 import axios from 'axios';
-import logo from './logo.svg';
-import SignUp from './signup_modal';
+import logo from '../../assets/icons/logo.svg';
+import SignUp from '../../components/auth/signup_modal.jsx';
 
 function Login() {
     const [inputId, setInputId] = useState('')

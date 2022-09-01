@@ -1,5 +1,5 @@
 import React, { useState, } from 'react';
-import styled from './login.module.css';
+import styled from '../../screens/Login/login.module.css';
 import axios from 'axios';
 import { Modal } from 'react-bootstrap';
 

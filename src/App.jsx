@@ -1,7 +1,7 @@
 import React, { Component, useState } from 'react'; 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Login from './screen/Login/login_screen.jsx';
-import Main from './screen/Main/main_screen.jsx'; 
+import Login from './screens/Login/login_screen.jsx';
+import Main from './screens/Main/main_screen.jsx'; 
 import './App.module.css';
 
 function App() {
