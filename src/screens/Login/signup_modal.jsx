@@ -87,16 +87,7 @@ const SignUp = (props) => {
                     <p style={{ color : "#fc9258", fontFamily : 'KyoboHand', fontWeight : 'bold'}}>인증이 완료되었습니다!</p>
                     :
                     <button 
-                        style={{
-                            color: '#fff',
-                            backgroundColor: '#FFAB72',
-                            boxShadow: '0px 0px 0px ',
-                            borderRadius: '10px',
-                            border: '0px solid #FEBA95',
-                            width: '50%',
-                            marginBottom : '15px'
-                        }}
-                        className='btn'
+                        className={styled.authButton}
                         onClick={onClickCertify}
                     >
                         학생 인증하기
@@ -111,34 +102,14 @@ const SignUp = (props) => {
             }
             <div>
                 <button 
-                    style={{
-                        color: '#FFAB72',
-                        backgroundColor: '#FFF',
-                        boxShadow: '0px 0px 0px ',
-                        borderRadius: '10px',
-                        border: '0px solid #FEBA95',
-                        width: '25%',
-                        marginBottom : '15px',
-                        marginRight : '5px'
-                    }}
-                    className='btn'
+                    className={styled.modalButton}
                     onClick={props.handleClose}
                 >
                     취소
                 </button>
                 <button 
                     disabled={!checkCertify}
-                    style={{
-                        color: '#fff',
-                        backgroundColor: '#FFAB72',
-                        boxShadow: '0px 0px 0px ',
-                        borderRadius: '10px',
-                        border: '0px solid #FEBA95',
-                        width: '25%',
-                        marginBottom : '15px',
-                        marginLeft : '5px'
-                    }}
-                    className='btn'
+                    className={styled.modalButton}
                     onClick={()=>{
                         onClickSignUp() 
                     }}

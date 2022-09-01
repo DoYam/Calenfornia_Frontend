@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import styled from './login.module.css';
 import axios from 'axios';
 import logo from '../../assets/icons/logo.svg';
-import SignUp from '../../components/auth/signup_modal.jsx';
+import AuthInput from '../../components/Auth/input.jsx';
+import SignUp from './signup_modal.jsx';
 
 function Login() {
     const [inputId, setInputId] = useState('')
@@ -57,23 +58,15 @@ function Login() {
         <>
             <div className={styled.box}>
                 <div style={{marginBottom: '30px',position : 'relative',}}>
-                    <p style={{fontSize: '60px', fontFamily : 'KyoboHand', position : 'absolute', left : '50%', top: '85%', transform : 'translate(-50%, -50%)'}}>Calenfornia</p>
+                    <p className={styled.titleStyle}>Calenfornia</p>
                     <img src={logo}/>
                 </div>
                 <div onKeyDown={handleKeyPress} style={{width : '25vw', minWidth : '330px'}}>
-                    <input 
-                        className={styled.inputStyle}
-                        value={inputId}
-                        onChange={handleInputId}
-                        placeholder="클래스넷 아이디를 입력해주세요" 
-                    />
-                    <br/>
-                    <input 
-                        className={styled.inputStyle}
-                        value={inputPw}
-                        onChange={handleInputPw}
-                        type="password"
-                        placeholder="클래스넷 비밀번호를 입력해주세요"
+                    <AuthInput 
+                        classnet_id={inputId} 
+                        classnet_pw = {inputPw} 
+                        onChangeId={handleInputId} 
+                        onChangePw={handleInputPw}
                     />
                     {
                         errorMessage ?
@@ -83,16 +76,7 @@ function Login() {
                     }
                     <button 
                         disabled={inputId.length < 6 || inputPw.length < 6}
-                        style={{
-                            color: '#fff',
-                            backgroundColor: '#FFAB72',
-                            boxShadow: '0px 0px 0px ',
-                            borderRadius: '10px',
-                            border: '0px solid #FEBA95',
-                            width: '100%',
-                            marginBottom : '15px'
-                        }}
-                        className='btn'
+                        className={styled.loginButton}
                         onClick={onClickLogin}
                     >
                         Login
@@ -103,7 +87,7 @@ function Login() {
                         </label>
                     </p>
                 </div>
-                <SignUp show = {show} handleClose ={handleClose}/>
+                <SignUp show={show} handleClose ={handleClose}/>
             </div>
         </>
     );
