@@ -105,3 +105,11 @@ table {
 .td.not-valid {
     visibility: hidden;
 }
+.info-box {
+    width: 100%;
+    font-size: 18px;
+    text-align: left;
+    
+    background-color: transparent;
+    border: none;
+}

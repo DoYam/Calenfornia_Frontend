@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from './login.module.css';
 import axios from 'axios';
 import logo from '../../assets/icons/logo.svg';
-import AuthInput from '../../components/auth/input.jsx';
+import AuthInput from '../../components/Auth/input.jsx';
 import SignUp from './signup_modal.jsx';
 
 function Login() {
