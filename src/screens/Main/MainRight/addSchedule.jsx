@@ -6,6 +6,7 @@ import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css';
 import RenderCells  from "./Calendar.jsx";
 import { useRef } from 'react';
+import { format } from 'date-fns';
 
 function leftPad(value) {
     if (value >= 10) {
@@ -14,13 +15,13 @@ function leftPad(value) {
     return `0${value}`;
 }
 
-function format(source, delimiter = '-') {
-    const year = source.getFullYear();
-    const month = leftPad(source.getMonth() + 1);
-    const day = leftPad(source.getDate());
+// function format(source, delimiter = '-') {
+//     const year = source.getFullYear();
+//     const month = source.getMonth() + 1;
+//     const day = source.getDate();
 
-    return [year, month, day].join(delimiter);
-}
+//     return [year, month, day].join(delimiter);
+// }
 
 
 function AddSchedule(props){
@@ -47,6 +48,9 @@ function AddSchedule(props){
     const postThings = ()  => {
         targetDate = format(targetDate);
 
+        console.log('targetdate 형식 보기');
+        console.log(targetDate);
+        
         setSubjectId(0);
         setProfessorId(0);
         setClassNum(0);
