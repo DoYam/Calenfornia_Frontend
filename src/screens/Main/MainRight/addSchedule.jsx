@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from './addSch.css';
 import axios from 'axios';
-import { Form, Modal } from 'react-bootstrap';
-import subject from '../../../components/selectSubject/subjectList';
+import { Button, Form, Modal } from 'react-bootstrap';
+import subject from '../MainLeft/subjectList';
 import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css';
 import RenderCells  from "./Calendar.jsx";
@@ -25,10 +25,7 @@ function format(source, delimiter = '-') {
 
 
 function AddSchedule(props){
-
-    
-    const Subject = subject;
-
+    const [subList, setSubjectData] = useState([]);
     const [subjectId, setSubjectId] = useState(0);
     const [professorId, setProfessorId] = useState(0);
     const [classNum, setClassNum] = useState(0);
@@ -37,8 +34,16 @@ function AddSchedule(props){
     const [description, setDescription] = useState('');
 
     let [infoData, setInfoData] = useState([]);
-    
     let [targetDate, setTargetDate] = useState(new Date());
+
+
+    useEffect(() => {
+        axios.get("http://127.0.0.1:8000/subject/")
+        .then((response)=> {
+            setSubjectData(response.data);
+        }).catch()
+    }, []);
+
 
     const postThings = ()  => {
         targetDate = format(targetDate);
@@ -74,15 +79,15 @@ function AddSchedule(props){
             console.log(response);
             console.log('일정추가 post 성공');
             props.handleClose();
-            // axios.get(`http://localhost:8000/infos/${localStorage.getItem('id')}`,
-            // ).then((response) => {
-            //     console.log('<<infodata확인>>');
-            //     setInfoData(response.data);
-            //     console.log(infoData);
-            // }
-            // ).catch(
+            axios.get(`http://localhost:8000/infos/${localStorage.getItem('id')}`,
+            ).then((response) => {
+                console.log('<<infodata확인>>');
+                setInfoData(response.data);
+                console.log(infoData);
+            }
+            ).catch(
 
-            // );
+            );
           })
           .catch(function (error) {
               console.log(error.response);
@@ -91,7 +96,7 @@ function AddSchedule(props){
 
           return(
             <div>
-                <RenderCells currentMonth={currentMonth} infoData={infoData}/>
+                <RenderCells />
             </div>
           );
     };
@@ -108,7 +113,8 @@ function AddSchedule(props){
 
     const classNumHandler = (e) => {
         var idx = e.target.value;
-        setClassNum(Number(Subject[subjectId-1]['classnum'][professorId-1][idx-1]));
+        setClassNum(Number(subList[subjectId-1]['classnum'][professorId-1][idx-1]));
+        // setClassNum(e.target.value);
         // console.log(classNum);
     };
 
@@ -131,15 +137,12 @@ function AddSchedule(props){
     return (
         <>
             <Modal 
-                show={props.show} 
-                onHide={props.handleClose}
-                size="lg"
-                centered
-                style={{fontFamily : 'KyoboHand'}}
+            show={props.show} 
+            onHide={props.handleClose}
+            size="lg"
+            centered
             >
-                <Modal.Header closeButton>
-                    <Modal.Title>일정 추가하기</Modal.Title>
-                </Modal.Header>
+                <Modal.Header closeButton> </Modal.Header>
                 <Modal.Body>
                     <Form style={{display: 'flex'}}>
                         <Form.Group className='mb-3'>
@@ -147,9 +150,9 @@ function AddSchedule(props){
                             <Form.Select className ={styled.select_box}  onChange={subjectHandler}>
                                 <option value="0">과목을 선택해주세요</option>
                                 {
-                                    Subject.map((subject, index) => {
+                                    subList.map((subject, index) => {
                                         return (
-                                            <option value={index+1} key={subject["subject"]}>{subject["subject"]}</option>
+                                            <option value={index+1} key={subject["subject_title"]}>{subject["subject_title"]}</option>
                                         );
                                     })
                                 }
@@ -163,7 +166,7 @@ function AddSchedule(props){
                                         <>
                                         <option value="0">교수님 선택</option>
                                         {
-                                            Subject[subjectId - 1]['professor'] && Subject[subjectId - 1]['professor']
+                                            JSON.parse(subList[subjectId - 1]['professor']) && JSON.parse(subList[subjectId - 1]['professor'])
                                             .map((professor, index)=>{
                                                 return(
                                                     <option value={index + 1} key={professor}>{professor}</option>
@@ -182,7 +185,7 @@ function AddSchedule(props){
                                         <>
                                             <option value="0">분반을 선택해주세요</option>
                                             {
-                                                Subject[subjectId - 1]['classnum'][professorId-1] && Subject[subjectId - 1]['classnum'][professorId-1]
+                                                JSON.parse(subList[subjectId - 1]['classnum'][professorId-1]) && JSON.parse(subList[subjectId - 1]['classnum'][professorId-1])
                                                         .map((classnum, index)=>{
                                                             return(
                                                                 <option value={index + 1} key={classnum}>{classnum}</option>

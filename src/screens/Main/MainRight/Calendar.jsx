@@ -6,12 +6,15 @@ import { startOfMonth, endOfMonth, startOfWeek, endOfWeek } from 'date-fns';
 import { isSameMonth, isSameDay, addDays, parse } from 'date-fns';
 import axios from 'axios';
 import AddSchedule from './addSchedule';
+import InfoOnCalendar from './InfoOnCalendar';
+
 
 const RenderHeader = ({currentMonth, prevMonth, nextMonth }) => {
 
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const [show1, setShow1] = useState(false);
+    const handleClose1 = () => setShow1(false);
+    const handleShow1 = () => setShow1(true);
+
 
     return (
         <div className="header">
@@ -26,8 +29,8 @@ const RenderHeader = ({currentMonth, prevMonth, nextMonth }) => {
                         <button style={{border: 'none', background:'transparent'}} onClick={nextMonth}><MdChevronRight/></button>
                  </span>
                  <span>
-                    <button className="plusSchedule" onClick={handleShow}>일정 추가하기</button>
-                    <AddSchedule  show={show} handleClose ={handleClose}/>
+                    <button className="plusSchedule" onClick={handleShow1}>일정 추가하기</button>
+                    <AddSchedule  show={show1} handleClose ={handleClose1}/>
                     {/* <AddSchedule show={show}/> */}
                  </span>
         </div>
@@ -36,6 +39,38 @@ const RenderHeader = ({currentMonth, prevMonth, nextMonth }) => {
 
 
 const RenderCells = ({currentMonth, info}) => {
+
+    const [show, setShow] = useState(false);
+    const [id, setId] = useState(-1);
+    const [targetInfo, setTarget] = useState([]);
+
+
+    const handleClose = () => {
+        setShow(false);
+    }
+    
+    const handleShow = (param) => {
+        console.log("target");
+        console.log(param);
+        setShow(true);
+
+        axios.get(`http://127.0.0.1:8000/info/${param}`)
+            .then((response)=>{
+                console.log("버튼 클릭시 조회");
+                console.log(response.data);
+                setTarget(response.data);
+            })
+            .catch();
+        
+    }
+
+
+    function leftPad(value) {
+        if (value >= 10) {
+            return value;
+        }
+        return `0${value}`;
+    }
 
     const dayWeek = [];
     const date = ['Sunday', 'Monday', 'Tuesday','Wednesday','Thursday','Friday','Saturday'];
@@ -66,24 +101,21 @@ const RenderCells = ({currentMonth, info}) => {
     let nowMonth = String(now.getMonth() + 1);
     const delimiter ='-';
 
-    // let yearNum =format(currentMonth, 'yyyy')
-    // let monthNum = format(currentMonth,'M')
-    // let dayNum = formattedDate;
-    // const delimiter ='-';
-    // let whatDay = [yearNum, monthNum, dayNum].join(delimiter);
-    // console.log(whatDay);
+
 
     while (day <= endDate) {
         
         for (let i = 0; i < 7; i++) {
-            //비교를 위한 모든 날짜 string 형식 맞추기
-            formattedYear = format(currentMonth, 'yyyy')
-            formattedMonth = format(currentMonth,'M')
-            formattedDate = format(day, 'd');
+            // 비교를 위한 모든 날짜 string 형식 맞추기
+            formattedYear = format(currentMonth, 'yyyy');
+            formattedMonth = leftPad(format(currentMonth,'M'));
+            formattedDate = leftPad(format(day, 'd'));
             dayString = [formattedYear, formattedMonth, formattedDate].join(delimiter);
             // console.log(dayString);
 
-            //오늘 날짜에 일정추가일때 : 오늘이 아닌 날짜에 일정추가일때(but currentMonth여야함ㅜ)
+            //오늘 날짜에 일정추가일때 
+            // : 오늘이 아닌 날짜에 일정추가일때(but currentMonth여야함ㅜ)
+
             days.push(
                 <td className={
                     `td ${format(currentMonth, 'M') !== format(day, 'M')
@@ -94,90 +126,70 @@ const RenderCells = ({currentMonth, info}) => {
                     //오늘 날짜 빨간표시
                     (format(currentMonth, 'M') === nowMonth) && (formattedDate === nowDate)
                     ? <div>
-                        <div style={{background:'#FFAB72', color : 'white', borderRadius : '100%', width : '35px', textAlign : 'center'}}>
-                            {formattedDate}
-                        </div>
+                        <div style={{background:'red', color : 'white', width : '20%'}}>
+                        {formattedDate}</div>
                         <div>
                             <div>
                              {/* 일정 추가 부분-1 */}
                              {
-                                true && info.map((t) => {
-                                    if(dayString === t.date)
+                                info.map((t)=>{
+                                    if(dayString == t.date){
                                         return (
                                             <div key={t.id}>
-                                                <button className='info-box'>
-                                                    {t.title}
+                                                <button className='info-box' onClick={() => {handleShow(t.id)}}>
+                                                    {t.title} 
                                                 </button>
+                                                <InfoOnCalendar show={show} handleClose={handleClose} info={targetInfo} />
                                             </div>
                                         )
+                                    }
+                                    
                                 })
-                                // roomData.map((r) =>{
-                    //     return (
-                    //         <div key={r.id} >
-                    //             <Link to={`/myrooms/${r.id}`}>
-                    //                     <button 
-                    //                         className="roomTitle-box" 
-                    //                         style={{backgroundColor:randomColor}}
-                    //                     >{r.title}</button>
-                    //             </Link>
-                    //         </div>
-                    //     );
-                    // })
                             }
+                           
                             </div> 
                         </div>
                     </div>
                     : <div>
-                        {
-                            i == 0 ?
-                            <p style={{color : '#FF0000'}}>{formattedDate}</p>
-                            : formattedDate
-                        }
+                        {formattedDate}
                         <div>
                             <div>
                             {/* 일정 추가 부분-2 */}
-                            {/* {
-                                true && infoData.map((t) => {
-                                    if(dayString === t.date)
+                            { 
+                                info.map((t)=>{
+                                    if(dayString == t.date){
                                         return (
                                             <div key={t.id}>
-                                                <button className='info-box'>
+                                                <button className='info-box' onClick={() => {handleShow(t.id)}}>
                                                     {t.title}
                                                 </button>
+                                                <InfoOnCalendar show={show} handleClose={handleClose} info={targetInfo} />
                                             </div>
+                                           
                                         )
+                                    }
+                                    
                                 })
-                            } */}
+                            }
+                            
                             </div> 
                         </div>
-                    </div>
-
-                    // roomData.map((r) =>{
-                    //     return (
-                    //         <div key={r.id} >
-                    //             <Link to={`/myrooms/${r.id}`}>
-                    //                     <button 
-                    //                         className="roomTitle-box" 
-                    //                         style={{backgroundColor:randomColor}}
-                    //                     >{r.title}</button>
-                    //             </Link>
-                    //         </div>
-                    //     );
-                    // })
-                    
+                    </div>                 
                 }
-             
                 </td>
             );
             day = addDays(day,1);
         }
+
         rows.push(
             <tr className="tr" key={day}>
                 {days}
             </tr>
         );
+
         days=[];
-    }
+    }//while문
+
     return (
         <table>
             <tbody>
@@ -190,12 +202,17 @@ const RenderCells = ({currentMonth, info}) => {
 
 
 
-const Calendar = () => {
+const Calendar = (props) => {
     const [currentMonth, setCurrentMonth] = useState(new Date());
     const [selectedDate, setSelectedDate] = useState(new Date());
-
-    const [infoData, setInfoData] = useState([]);
     const [check, setCheck] = useState(false);
+
+
+    //모든 사람이 등록한 전체 info
+    const [infoData, setInfoData] = useState([]);
+
+    //모든 info에서 필터링 된 내 info
+    const [mySubInfo, setMySubInfo] = useState([]);
 
 
     const prevMonth = () => {
@@ -206,18 +223,27 @@ const Calendar = () => {
         setCurrentMonth(addMonths(currentMonth, 1));
     };
 
-    const eventHandler = () => {
-        setCheck(!check);
-    }
 
     useEffect(()=> {
         axios.get(`http://localhost:8000/infos/${localStorage.getItem('id')}`,
             ).then((response) => {
                 console.log(response.data);
                 setInfoData(response.data);
+                axios.get(`http://localhost:8000/info/usersubject/${localStorage.getItem('id')}`,
+                ).then((response) => {
+                    console.log(',,,필터링 성공,,,');
+                    console.log(response.data);
+                    var parsed = response.data.reduce(function(accumulator, currentValue, index) {
+                        return accumulator.concat(currentValue);
+                    })
+                    console.log("reduce 후");
+                    console.log(parsed);
+                    setMySubInfo(parsed);
+                }
+                ).catch()
             }
             ).catch();
-    },[check]);
+    },[]);
     
 
     return (
@@ -230,8 +256,9 @@ const Calendar = () => {
             />
             <RenderCells
                 currentMonth={currentMonth}
-                info = {infoData}
+                info = {mySubInfo}
             />
+            
         </div>
     );
 };

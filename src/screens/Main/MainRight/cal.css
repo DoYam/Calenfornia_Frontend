@@ -41,32 +41,21 @@
 }
 
 .plusSchedule {
-    display: inline-block;
-    margin:10px;
-    margin-left: 10px;
+    /* position: absolute; */
+
+    box-sizing: border-box;
+    background-color: white;
+
+    width: 130px;
+    height: 30px;
+
+    border: 1px solid #ffffff;
+    margin-top: 15px;
+
+    font-weight: 700;
+    font-size: 18px;
+
     color: #FFAB72;
-    width: 115px;
-    height: 40px;
-    background: #FFFFFF;
-    font-weight: bold;
-    font-size: 20px;
-    border:0;
-    outline:0;
-    border-radius: 10px;
-}
-.plusSchedule:hover{
-    display: inline-block;
-    margin:10px;
-    margin-left: 10px;
-    width: 115px;
-    height: 40px;
-    color: #ffffff;
-    background: #FFAB72;;
-    font-weight: bold;
-    font-size: 20px;
-    border:0;
-    outline:0;
-    border-radius: 10px;
 }
 
 /* 헤더 칸 끝 */
@@ -75,10 +64,10 @@
 /* 요일 칸 시작*/
 /* 요일 칸 레이아웃 */
 .col {
-    border-right: 1px solid #D9D9D9;
-    border-left: 1px solid #D9D9D9;
-    border-bottom: 1px solid #D9D9D9;
-    border-top: 1px solid #D9D9D9;  
+    border-right: 1px solid #666666;
+    border-left: 1px solid #666666;
+    border-bottom: 1px solid #666666;
+    border-top: 1px solid #666666;  
     height: 5%;
     text-align: center;
     justify-content: center;
@@ -100,19 +89,30 @@ table {
 }
 
 .td {
-    border-right: 1px solid #D9D9D9;
-    border-left: 1px solid #D9D9D9;
-    border-bottom: 1px solid #D9D9D9;
+    border-right: 1px solid #666666;
+    border-left: 1px solid #666666;
+    border-bottom: 1px solid #666666;
 
     width: 12.9%;
-    
+
     font-weight: 500;
     font-size: 24px;
 
     vertical-align : top;
+
+    color: #666666;
+
 }
 
 .td.not-valid {
     visibility: hidden;
 }
 
+.info-box {
+    width: 100%;
+    font-size: 18px;
+    text-align: left;
+    
+    background-color: transparent;
+    border: none;
+}
