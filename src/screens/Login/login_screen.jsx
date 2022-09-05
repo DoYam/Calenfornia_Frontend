@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from './login.module.css';
 import axios from 'axios';
 import logo from '../../assets/icons/logo.svg';
-import AuthInput from '../../components/Auth/input.jsx';
+import AuthInput from '../../components/auth/input.jsx';
 import SignUp from './signup_modal.jsx';
 
 function Login() {
@@ -82,9 +82,7 @@ function Login() {
                         Login
                     </button>
                     <p style={{fontFamily : 'KyoboHand'}}>
-                        처음 이용하신다면? <label style={{color: 'blue', textDecoration: 'underline'}} onClick={handleShow}>
-                            홍익대학교 학생 인증 후 가입하기
-                        </label>
+                        처음 이용하신다면? <label style={{color: 'blue', textDecoration: 'underline'}} onClick={handleShow}> 홍익대학교 학생 인증 후 가입하기 </label>
                     </p>
                 </div>
                 <SignUp show={show} handleClose ={handleClose}/>
