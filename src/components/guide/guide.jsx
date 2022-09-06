@@ -9,7 +9,7 @@ const Information = (props) => {
         <div className={style.informationForm}>
             <p>{props.num}</p>
             <div style={{textAlign: 'center'}}>
-                <img src={props.image} style={{width: '60%'}} alt=""/>
+                <img src={props.image} style={{width: '70%'}} alt=""/>
             </div>
             <p>{props.content}</p>
         </div>
