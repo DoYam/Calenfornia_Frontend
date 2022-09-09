@@ -1,42 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import style from '../../screens/Main/main.module.css';
 import styled from './todo.module.css';
-import axios from 'axios';
 import Todo from './todo';
+import useTodo from '../../hooks/useTodo';
 
 function TodoList(){
-    const [inputTodo, setInputTodo] = useState('')
-    const [todoList, setTodoList] = useState([])
 
-    const handleTodo= (e) => {
-        setInputTodo(e.target.value)
-    }
-
-    const onClickSubmit = () => {
-        axios.post("http://127.0.0.1:8000/todo/",
-            {
-                user_id : localStorage.getItem('id'),
-                description : inputTodo,
-            }
-        ).then((response) => {
-            console.log(response);
-            setInputTodo("")
-            axios.get(`http://127.0.0.1:8000/todo/${localStorage.getItem('id')}/`)
-            .then((res)=> {
-                console.log(res);
-                setTodoList(res.data)
-            })
-        }
-        ).catch()
-        setInputTodo("");
-    }
-    
-    useEffect(() => {
-        axios.get(`http://127.0.0.1:8000/todo/${localStorage.getItem('id')}/`
-        ).then((response)=> {
-            setTodoList(response.data)
-        }).catch()
-    }, []);
+    const {
+        inputTodo, todoList, setTodoList, handleTodo, onClickSubmit
+    } = useTodo();
 
     return (
         <>

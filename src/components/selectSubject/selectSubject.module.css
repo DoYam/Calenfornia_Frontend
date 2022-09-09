@@ -55,3 +55,13 @@
     padding-top: 5px;
     padding-bottom: 25px;
 }
+.Xbutton{
+    border : none;
+    font-family : 'initial'; 
+    text-align : 'center';
+    vertical-align: 'middle';
+    color : 'white';
+    font-weight : 'bold';
+    margin-left :'5px';
+    background : 'transparent';
+}
