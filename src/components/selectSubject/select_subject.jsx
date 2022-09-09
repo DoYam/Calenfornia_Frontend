@@ -10,21 +10,23 @@ import axios from 'axios';
 
 
 function SelectSubject () {
-    const [show, setShow] = useState(false);
-    const handleClose = () => {setShow(false); setSubCheck(false); setProfCheck(false); setClassCheck(false);};
-    const handleShow = () => setShow(true);
-    
     const [checkSub, setSubCheck] = useState(false);
     const [checkProf, setProfCheck] = useState(false);
     const [checkClass, setClassCheck] = useState(false);
+
     const [subjectId, setSubjectID] = useState(0);
     const [professorId, setProfessorID] = useState(0);
     const [classNumId, setClassNumID] = useState(0);
 
+    const [show, setShow] = useState(false);
+    const handleClose = () => {
+        setShow(false); setSubCheck(false); setProfCheck(false); setClassCheck(false);
+    };
+    const handleShow = () => setShow(true);
+
     const [userSubject, setUserSubject] = useState([]);
 
     const [allData, setAllData] = useState([]);
-    const [infoData, setInfoData] = useState([]);
 
     const subjectChange = (e) => {
         if (e.target.value === '0'){

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styled from './addSch.css';
+import styled from './addSch.module.css';
 import axios from 'axios';
 import { Button, Form, Modal } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
@@ -140,115 +140,121 @@ function AddSchedule(props){
     return (
         <>
             <Modal 
-            show={props.show} 
-            onHide={props.handleClose}
-            size="lg"
-            centered
-            >
-                <Modal.Header closeButton> </Modal.Header>
-                <Modal.Body>
-                    <Form style={{display: 'flex'}}>
-                        <Form.Group className='mb-3'>
-                            <Form.Label>과목</Form.Label>
-                            <Form.Select className ={styled.select_box}  onChange={subjectHandler}>
-                                <option value="0">과목을 선택해주세요</option>
-                                {
-                                    subList.map((subject, index) => {
-                                        return (
-                                            <option value={index+1} key={subject["subject_title"]}>{subject["subject_title"]}</option>
-                                        );
-                                    })
-                                }
-                            </Form.Select>
-                            <Form.Label>교수명</Form.Label>
-                            <Form.Select className ="select-box" onChange={professorHandler}>
-                                {
-                                    subjectId === 0
-                                    ? <option value="0">교수님 선택</option>
-                                    :
-                                        <>
-                                        <option value="0">교수님 선택</option>
-                                        {
-                                            JSON.parse(subList[subjectId - 1]['professor']) && JSON.parse(subList[subjectId - 1]['professor'])
-                                            .map((professor, index)=>{
-                                                return(
-                                                    <option value={index + 1} key={professor}>{professor}</option>
-                                                );
-                                            })
-                                        }
-                                        </>
-                                }
-                            </Form.Select>
-                            <label>분반</label>
-                            <Form.Select className ="select-box" onChange={classNumHandler}>
-                                {
-                                    subjectId === 0 || professorId === 0
-                                        ? <option key="0" >분반을 선택해주세요</option>
+                show={props.show} 
+                onHide={props.handleClose}
+                size="lg"
+                centered
+            >   
+                <Modal.Header closeButton/>
+                <Modal.Body style={{height : '400px', }}>
+                    <div style={{display : 'flex', }}>
+                        <div className={styled.box}> 
+                            <div style={{display: 'flex', justifyContent : 'space-between'}}>
+                                <label style={{fontWeight : 'bold', fontSize : '18px'}}>과목</label>
+                                <Form.Select className ={styled.select_box}  onChange={subjectHandler}>
+                                    <option value="0">과목을 선택해주세요</option>
+                                    {
+                                        subList.map((subject, index) => {
+                                            return (
+                                                <option value={index+1} key={subject["subject_title"]}>{subject["subject_title"]}</option>
+                                            );
+                                        })
+                                    }
+                                </Form.Select>
+                            </div>
+                            <div style={{display: 'flex', justifyContent : 'space-between'}}>
+                                <label style={{fontWeight : 'bold', fontSize : '18px'}}>교수명</label>
+                                <Form.Select className ={styled.select_box} onChange={professorHandler}>
+                                    {
+                                        subjectId === 0
+                                        ? <option value="0">교수님 선택</option>
                                         :
-                                        <>
-                                            <option value="0">분반을 선택해주세요</option>
+                                            <>
+                                            <option value="0">교수님 선택</option>
                                             {
-                                                JSON.parse(subList[subjectId - 1]['classnum'][professorId-1]) && JSON.parse(subList[subjectId - 1]['classnum'][professorId-1])
-                                                        .map((classnum, index)=>{
-                                                            return(
-                                                                <option value={index + 1} key={classnum}>{classnum}</option>
-                                                            );
-                                                    })
+                                                JSON.parse(subList[subjectId - 1]['professor']) && JSON.parse(subList[subjectId - 1]['professor'])
+                                                .map((professor, index)=>{
+                                                    return(
+                                                        <option value={index + 1} key={professor}>{professor}</option>
+                                                    );
+                                                })
                                             }
-                                        </>
-                                }
-                            </Form.Select>
-                            <label>카테고리</label>
-                            <Form.Select className ="select-box" onChange={categoryHandler}>
-                                <option value='0'>카테고리를 선택해주세요</option>
-                                <option value='1'>중간고사</option>
-                                <option value='2'>기말고사</option>
-                                <option value='3'>과제</option>
-                                <option value='4'>퀴즈</option>
-                            </Form.Select>
-                       
-                            <label>날짜</label>
-                            <DatePicker 
-                                className ="select-box"
-                                selected={targetDate}
-                                dateFormat="yyyy-MM-dd"
-                                minDate={new Date()} 
-                                onChange={(date) => (setTargetDate(date))}
-                            />
-                            
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                            <div>
-                                <label>일정 제목</label>
+                                            </>
+                                    }
+                                </Form.Select>
+                            </div>
+                            <div style={{display: 'flex', justifyContent : 'space-between'}}>
+                                <label style={{fontWeight : 'bold', fontSize : '18px'}}>분반</label>
+                                <Form.Select className ={styled.select_box} onChange={classNumHandler}>
+                                    {
+                                        subjectId === 0 || professorId === 0
+                                            ? <option key="0" >분반을 선택해주세요</option>
+                                            :
+                                            <>
+                                                <option value="0">분반을 선택해주세요</option>
+                                                {
+                                                    JSON.parse(subList[subjectId - 1]['classnum'][professorId-1]) && JSON.parse(subList[subjectId - 1]['classnum'][professorId-1])
+                                                            .map((classnum, index)=>{
+                                                                return(
+                                                                    <option value={index + 1} key={classnum}>{classnum}</option>
+                                                                );
+                                                        })
+                                                }
+                                            </>
+                                    }
+                                </Form.Select>
+                            </div>
+                            <div style={{display: 'flex', justifyContent : 'space-between'}}>
+                                <label style={{fontWeight : 'bold', fontSize : '18px'}}>카테고리</label>
+                                <Form.Select className ={styled.select_box} onChange={categoryHandler}>
+                                    <option value='0'>카테고리를 선택해주세요</option>
+                                    <option value='1'>중간고사</option>
+                                    <option value='2'>기말고사</option>
+                                    <option value='3'>과제</option>
+                                    <option value='4'>퀴즈</option>
+                                </Form.Select>
+                            </div>
+                            <div style={{display: 'flex', justifyContent : 'space-between'}}>
+                                <label style={{fontWeight : 'bold', fontSize : '18px'}}>날짜</label>
+                                <div>
+                                    <DatePicker 
+                                        className={styled.date_select}
+                                        selected={targetDate}
+                                        dateFormat="yyyy-MM-dd"
+                                        minDate={new Date()} 
+                                        onChange={(date) => (setTargetDate(date))}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div className={styled.box}>
+                            <div style={{display: 'flex', justifyContent : 'space-between'}}>
+                                <label style={{fontWeight : 'bold', fontSize : '18px'}}>일정 제목</label>
                                 <input
-                                    className='select-box'
-                                    name="title" 
-                                    type="text"
+                                    className={styled.inputStyle}
                                     value={title}
                                     onChange={titleHandler}
                                 />
                             </div>
                             <div>
-                                <label>상세 설명</label>
-                                <textarea 
-                                className='select-box'
-                                rows="10"
-                                cols="40"
-                                onChange={descriptionHandler}
-                                ></textarea>
+                                <label style={{fontWeight : 'bold', fontSize : '18px'}}>상세 설명</label>
+                                <div style={{textAlign : 'center'}}>
+                                    <textarea 
+                                        className={styled.description}
+                                        rows="10"
+                                        cols="40"
+                                        onChange={descriptionHandler}
+                                    />
+                                </div>
                             </div>
-                        </Form.Group>
-                    </Form>
-                    <div className='btn-box'>
-                        <button className='btn1' onClick={props.handleClose}>취소하기</button>
-                        <span>
-                        <button className='btn2' onHide={props.handleClose} onClick={postThings}>추가하기</button>
+                        </div>
+                    </div>
+                    <div className={styled.btn_box}>
+                        <button className={styled.button} onClick={props.handleClose}>취소하기</button>
+                        <button className={styled.button} onHide={props.handleClose} onClick={postThings}>추가하기</button>
                         {/* <RenderCells currentMonth={currentMonth}  infoData={infoData}/> */}
                         {/* <AddSchedule  show={show} handleClose ={handleClose}/> */}
-                        </span>
-                        
                     </div>
-                    
                 </Modal.Body>
             </Modal>
         </>
