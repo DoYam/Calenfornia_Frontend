@@ -2,15 +2,14 @@
 
 ### 프로젝트 소개
 - 멋쟁이 사자처럼 10기 해커톤 Calenfornia팀 
-- 개발 기간 :  
-- 한줄 요약 : 
+- 개발 기간 : 2022.07 ~ 2022.09
+- 한줄 요약 : 홍익대학교 컴퓨터공학과 수업 일정 공유 캘린더
 - PainPoint
   - 과제, 시험 일정을 찾아보기가 힘듦.
   - 학과 여러 정보들을 클래스룸을 통해 찾아보기 어렵다는 점
   - 수업 오픈 채팅 안에서 필요했던 정보를 찾아 보는 것에 대한 번거로움
 
 ### Calenfornia - 수업 정보 공유의 공간
-이자리에 추가 내용 들어감
 
 ### UI
 <img width="500" alt="스크린샷 2022-08-28 오후 6 30 29" src="https://user-images.githubusercontent.com/70309113/187068234-736c830b-4ea2-4edd-b8da-fe78f8f982f9.png"> <img width="500" alt="스크린샷 2022-08-22 오전 11 19 46" src="https://user-images.githubusercontent.com/70309113/187068252-d36848f0-b636-4ab7-9d3c-026e88e73712.png"> <img width="500" alt="스크린샷 2022-08-28 오후 6 56 43" src="https://user-images.githubusercontent.com/70309113/187068279-69d8ff59-b60e-43c7-8026-f9e83f45eb72.png"> <img width="500" alt="스크린샷 2022-08-28 오후 6 58 21" src="https://user-images.githubusercontent.com/70309113/187068350-dfb95da5-51b1-498d-82c8-94d7d44b961c.png"> <img width="500" alt="스크린샷 2022-08-28 오후 6 58 27" src="https://user-images.githubusercontent.com/70309113/187068357-546471fb-a92f-40a5-ac49-7dc80cbf4ec3.png">
