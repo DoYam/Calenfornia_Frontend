@@ -45,6 +45,12 @@
 .loginButton:disabled{
     background-color: #fdccad;
 }
+.openModal{
+    color: blue;
+    text-decoration : underline;
+    border : none; 
+    background : white;
+}
 .button{
     background-color: #FFAB72;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

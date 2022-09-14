@@ -43,7 +43,7 @@ function Login() {
                         Login
                     </button>
                     <p style={{fontFamily : 'KyoboHand'}}>
-                        처음 이용하신다면? <label style={{color: 'blue', textDecoration: 'underline'}} onClick={handleShow}> 홍익대학교 학생 인증 후 가입하기 </label>
+                        처음 이용하신다면?<button className={styled.openModal} onClick={handleShow}> 홍익대학교 학생 인증 후 가입하기 </button>
                     </p>
                 </div>
                 <SignUp show={show} handleClose ={handleClose}/>

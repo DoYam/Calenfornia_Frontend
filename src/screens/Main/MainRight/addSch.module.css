@@ -66,6 +66,7 @@
     border-radius : 5px;
     width: 250px;
     height: 40px;
+    padding: 10px;
 }
 .inputStyle:focus{
     border: 2px solid #f7925c;
@@ -80,6 +81,7 @@
     background: #FFFBF7;
     border: 2px solid #FFAB72;
     border-radius: 5px;
+    padding: 10px;
 }
 .description:focus{
     border: 2px solid #f7925c;
