@@ -21,6 +21,7 @@
 }
 .select_box:focus{
     border: 2px solid #f7925c;
+    box-shadow: none;
 }
 
 .date_select{

@@ -14,6 +14,16 @@
     height: 7vh;
     margin-left: 10px;
     margin-right: 10px;
+    background-color: #FFFBF7;
+    border: 2px solid #FFAB72;
+}
+.selctBox:focus{
+    border: 2px solid #f7925c;
+    box-shadow: none;
+}
+.selctBox:disabled{
+    background-color: #f2f1f1;
+    color: grey;
 }
 .subjectList{
     display: flex;
