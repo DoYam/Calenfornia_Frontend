@@ -11,7 +11,7 @@ const useTodo = () => {
     }
 
     const onClickSubmit = () => {
-        axios.post("http://127.0.0.1:8000/todo/",
+        axios.post("http://43.201.34.118:3306/todo/",
             {
                 user_id : localStorage.getItem('id'),
                 description : inputTodo,
@@ -19,7 +19,7 @@ const useTodo = () => {
         ).then((response) => {
             console.log(response);
             setInputTodo("")
-            axios.get(`http://127.0.0.1:8000/todo/${localStorage.getItem('id')}/`)
+            axios.get(`http://43.201.34.118:3306/todo/${localStorage.getItem('id')}/`)
             .then((res)=> {
                 console.log(res);
                 setTodoList(res.data)
@@ -30,7 +30,7 @@ const useTodo = () => {
     }
     
     useEffect(() => {
-        axios.get(`http://127.0.0.1:8000/todo/${localStorage.getItem('id')}/`
+        axios.get(`http://43.201.34.118:3306/todo/${localStorage.getItem('id')}/`
         ).then((response)=> {
             setTodoList(response.data)
         }).catch()

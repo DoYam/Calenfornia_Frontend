@@ -38,7 +38,7 @@ function AddSchedule(props){
 
 
     useEffect(() => {
-        axios.get("http://127.0.0.1:8000/subject/")
+        axios.get("http://43.201.34.118:3306/subject/")
         .then((response)=> {
             setSubjectData(response.data);
         }).catch()
@@ -60,7 +60,7 @@ function AddSchedule(props){
         setDescription('');
 
 
-        axios.post("http://localhost:8000/info/",
+        axios.post("http://43.201.34.118:3306/info/",
           { 
                 user_id : localStorage.getItem('id'),
                 title : title,
@@ -82,7 +82,7 @@ function AddSchedule(props){
             console.log(response);
             console.log('일정추가 post 성공');
             props.handleClose();
-            axios.get(`http://localhost:8000/infos/${localStorage.getItem('id')}`,
+            axios.get(`http://43.201.34.118:3306/infos/${localStorage.getItem('id')}`,
             ).then((response) => {
                 console.log('<<infodata확인>>');
                 setInfoData(response.data);
@@ -251,7 +251,7 @@ function AddSchedule(props){
                     </div>
                     <div className={styled.btn_box}>
                         <button className={styled.button} onClick={props.handleClose}>취소하기</button>
-                        <button className={styled.button} onHide={props.handleClose} onClick={postThings}>추가하기</button>
+                        <button className={styled.button} onClick={postThings}>추가하기</button>
                         {/* <RenderCells currentMonth={currentMonth}  infoData={infoData}/> */}
                         {/* <AddSchedule  show={show} handleClose ={handleClose}/> */}
                     </div>

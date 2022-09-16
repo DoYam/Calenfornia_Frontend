@@ -15,7 +15,7 @@ const useLogin = () => {
     }
 
     const onClickLogin = () => {
-        axios.post("http://127.0.0.1:8000/accounts/login/"
+        axios.post("http://43.201.34.118:3306/accounts/login/"
         ,{
             classnetid : inputId,
             classnetpw : inputPw
