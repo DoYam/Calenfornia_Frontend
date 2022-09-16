@@ -8,7 +8,7 @@ function Main() {
 
   useEffect(() => {
     if (localStorage.getItem('token') === null) {
-      window.location.replace('http://localhost:3000/')
+      window.location.replace('http://3.34.177.118:3000/')
     }
   }, []);
 

@@ -26,7 +26,7 @@ const useLogin = () => {
             localStorage.clear()
             localStorage.setItem('id', res.data.id)
             localStorage.setItem('token', res.data.token)
-            window.location.replace('http://localhost:3000/main')
+            window.location.replace('http://3.34.177.118:3000/main')
         })
         .catch((err) => {
             console.log(err)
@@ -46,7 +46,7 @@ const useLogin = () => {
 
     useEffect(() => {
         if (localStorage.getItem('token') !== null) {
-          window.location.replace('http://localhost:3000/main')
+          window.location.replace('http://3.34.177.118:3000/main')
         }
     }, []);
 
