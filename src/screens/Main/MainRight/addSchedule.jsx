@@ -38,7 +38,7 @@ function AddSchedule(props){
 
 
     useEffect(() => {
-        axios.get("/subject")
+        axios.get("/subject/")
         .then((response)=> {
             setSubjectData(response.data);
         }).catch()
@@ -60,7 +60,7 @@ function AddSchedule(props){
         setDescription('');
 
 
-        axios.post("/info",
+        axios.post("/info/",
           { 
                 user_id : localStorage.getItem('id'),
                 title : title,
@@ -82,7 +82,7 @@ function AddSchedule(props){
             console.log(response);
             console.log('일정추가 post 성공');
             props.handleClose();
-            axios.get(`/infos/${localStorage.getItem('id')}`,
+            axios.get(`/infos/${localStorage.getItem('id')}/`,
             ).then((response) => {
                 console.log('<<infodata확인>>');
                 setInfoData(response.data);

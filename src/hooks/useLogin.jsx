@@ -15,14 +15,13 @@ const useLogin = () => {
     }
 
     const onClickLogin = () => {
-        axios.post("http://43.201.34.118:3306/accounts/login/"
+        axios.post("/accounts/login/"
         ,{
             classnetid : inputId,
             classnetpw : inputPw
         }
         )
         .then(res => {
-            console.log(res.data)
             localStorage.clear()
             localStorage.setItem('id', res.data.id)
             localStorage.setItem('token', res.data.token)
