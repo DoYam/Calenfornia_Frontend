@@ -50,5 +50,5 @@
   "devDependencies": {
     "babel-plugin-date-fns": "^0.2.1"
   },
-  "proxy" : "http://43.201.34.118:3306/"
+  "proxy" : "http://43.201.34.118:3306"
 }
