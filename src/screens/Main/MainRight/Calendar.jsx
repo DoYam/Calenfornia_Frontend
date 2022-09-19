@@ -54,7 +54,7 @@ const RenderCells = ({currentMonth, info}) => {
         console.log(param);
         setShow(true);
 
-        axios.get(`http://43.201.34.118:3306/info/${param}`)
+        axios.get(`/info/${param}`)
             .then((response)=>{
                 console.log("버튼 클릭시 조회");
                 console.log(response.data);

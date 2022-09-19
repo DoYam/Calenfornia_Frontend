@@ -50,7 +50,7 @@ const useSubject = () => {
     }
 
     const refreshSubject = () => {
-        axios.delete(`http://43.201.34.118:3306/usersubject/${localStorage.getItem('id')}`).then(()=>{}).catch()
+        axios.delete(`/usersubject/${localStorage.getItem('id')}`).then(()=>{}).catch()
         setUserSubject([])
         setSubCheck(false)
         setProfCheck(false)
@@ -61,8 +61,8 @@ const useSubject = () => {
 
     const deleteSubject = (e) => {
         const userSubjectid = e.target.value
-        axios.delete(`http://43.201.34.118:3306/usersubject/${localStorage.getItem('id')}/${userSubjectid}`).then(()=>{
-            axios.get(`http://43.201.34.118:3306/usersubject/${localStorage.getItem('id')}`)
+        axios.delete(`/usersubject/${localStorage.getItem('id')}/${userSubjectid}`).then(()=>{
+            axios.get(`/usersubject/${localStorage.getItem('id')}`)
             .then((response)=> {
                 setUserSubject(response.data);
             })
@@ -72,13 +72,13 @@ const useSubject = () => {
     const addSubjectLabel = () => {
         setSubjectID(0); setProfessorID(0); setClassNumID(0);
         setSubCheck(false); setProfCheck(false); setClassCheck(false);
-        axios.post(`http://43.201.34.118:3306/usersubject/`,{
+        axios.post(`/usersubject/`,{
             user_id : localStorage.getItem('id'),   
             subject_id : subjectId,
             professor_id : professorId,
             classnum : classNumId
         }).then(()=>{
-            axios.get(`http://43.201.34.118:3306/usersubject/${localStorage.getItem('id')}`)
+            axios.get(`/usersubject/${localStorage.getItem('id')}`)
             .then((response)=> {
                 setUserSubject(response.data);
             }).catch()
@@ -86,10 +86,10 @@ const useSubject = () => {
     }
 
     useEffect(() => {
-        axios.get("http://43.201.34.118:3306/subject/")
+        axios.get("/subject/")
         .then((response)=> {
             setAllData(response.data)
-            axios.get(`http://43.201.34.118:3306/usersubject/${localStorage.getItem('id')}`)
+            axios.get(`/usersubject/${localStorage.getItem('id')}`)
             .then((response)=> {
                 console.log(response.data)
                 setUserSubject(response.data)
