@@ -15,7 +15,7 @@ const useLogin = () => {
     }
 
     const onClickLogin = () => {
-        axios.post("/accounts/login/"
+        axios.post("/api/accounts/login"
         ,{
             classnetid : inputId,
             classnetpw : inputPw

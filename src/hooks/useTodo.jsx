@@ -11,7 +11,7 @@ const useTodo = () => {
     }
 
     const onClickSubmit = () => {
-        axios.post("/todo/",
+        axios.post("/api/todo",
             {
                 user_id : localStorage.getItem('id'),
                 description : inputTodo,
@@ -19,7 +19,7 @@ const useTodo = () => {
         ).then((response) => {
             console.log(response);
             setInputTodo("")
-            axios.get(`/todo/${localStorage.getItem('id')}/`)
+            axios.get(`/api/todo/${localStorage.getItem('id')}`)
             .then((res)=> {
                 console.log(res);
                 setTodoList(res.data)
@@ -30,7 +30,7 @@ const useTodo = () => {
     }
     
     useEffect(() => {
-        axios.get(`/todo/${localStorage.getItem('id')}/`
+        axios.get(`/api/todo/${localStorage.getItem('id')}`
         ).then((response)=> {
             setTodoList(response.data)
         }).catch()
