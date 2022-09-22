@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const Todo = (props) => {
     const todo_id = props.todo_id;
-    const url = `/api/todo/${localStorage.getItem('id')}/${todo_id}`;
+    const url = `/todo/${localStorage.getItem('id')}/${todo_id}`;
     const [check, setCheck] = useState(props.complete);
     
     const onClickCheck = () => {
@@ -23,7 +23,7 @@ const Todo = (props) => {
 
     const onClickDelete = (e) => {
         axios.delete(url).then(() => {
-            axios.get(`/api/todo/${localStorage.getItem('id')}`
+            axios.get(`/todo/${localStorage.getItem('id')}`
             ).then((response)=> {
                 props.setTodo(response.data)
             })

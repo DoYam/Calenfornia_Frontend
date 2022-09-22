@@ -19,12 +19,12 @@ const useSignup = () => {
     }
 
     const onClickCertify = () => {
-        axios.post("/api/accounts/classnet", {
+        axios.post("/accounts/classnet", {
             classnetid : classnetId,
             classnetpw : classnetPw
         })
         .then(() => {
-            axios.get("/api/accounts/classnet").then(
+            axios.get("/accounts/classnet").then(
                 (res) => {
                     console.log(res)
                     setCheck(res.data.classnet)
@@ -38,13 +38,13 @@ const useSignup = () => {
 
     // 회원가입시 rest api 통신할 내용
     const onClickSignUp = () => {
-        axios.post("/api/accounts/signup", {
+        axios.post("/accounts/signup", {
             classnet : checkCertify,
             classnetid : classnetId,
             classnetpw : classnetPw,
         })
         .then(() => {
-            axios.get("/api/accounts/signup"
+            axios.get("/accounts/signup"
             ).then(function (res){
                 console.log(res.data)
                 setSignup(res.data.classnet)

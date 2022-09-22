@@ -54,7 +54,7 @@ const RenderCells = ({currentMonth, info}) => {
         console.log(param);
         setShow(true);
 
-        axios.get(`/api/info/${param}`)
+        axios.get(`/info/${param}`)
             .then((response)=>{
                 console.log("버튼 클릭시 조회");
                 console.log(response.data);
@@ -239,11 +239,11 @@ const Calendar = (props) => {
 
 
     useEffect(()=> {
-        axios.get(`/api/infos/${localStorage.getItem('id')}`,
+        axios.get(`/infos/${localStorage.getItem('id')}`,
             ).then((response) => {
                 console.log(response.data);
                 setInfoData(response.data);
-                axios.get(`/api/info/usersubject/${localStorage.getItem('id')}`,
+                axios.get(`/info/usersubject/${localStorage.getItem('id')}`,
                 ).then((response) => {
                     console.log(',,,필터링 성공,,,');
                     console.log(response.data);
