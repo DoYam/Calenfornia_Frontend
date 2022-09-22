@@ -19,12 +19,12 @@ const useSignup = () => {
     }
 
     const onClickCertify = () => {
-        axios.post("/accounts/classnet", {
+        axios.post("http://43.201.34.118:3306/accounts/classnet", {
             classnetid : classnetId,
             classnetpw : classnetPw
         })
         .then(() => {
-            axios.get("/accounts/classnet").then(
+            axios.get("http://43.201.34.118:3306/accounts/classnet").then(
                 (res) => {
                     console.log(res)
                     setCheck(res.data.classnet)
