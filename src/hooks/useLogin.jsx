@@ -15,7 +15,7 @@ const useLogin = () => {
     }
 
     const onClickLogin = () => {
-        axios.post("http://43.201.34.118:3306/accounts/login"
+        axios.post("http://43.201.34.118:3306/accounts/login/"
         ,{
             classnetid : inputId,
             classnetpw : inputPw
@@ -25,7 +25,7 @@ const useLogin = () => {
             localStorage.clear()
             localStorage.setItem('id', res.data.id)
             localStorage.setItem('token', res.data.token)
-            window.location.replace('http://3.35.11.74/Main')
+            window.location.replace('http://3.35.11.74:3000/Main')
         })
         .catch((err) => {
             console.log(err)
@@ -45,7 +45,7 @@ const useLogin = () => {
 
     useEffect(() => {
         if (localStorage.getItem('token') !== null) {
-          window.location.replace('http://3.35.11.74/Main')
+          window.location.replace('http://3.35.11.74:3000/Main')
         }
     }, []);
 
