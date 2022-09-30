@@ -45,7 +45,7 @@ const useLogin = () => {
 
     useEffect(() => {
         if (localStorage.getItem('token') !== null) {
-          window.location.replace('http://3.35.11.74:3000/Main')
+          window.location.replace('http://3.35.11.74/Main')
         }
     }, []);
 
