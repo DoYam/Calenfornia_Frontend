@@ -8,7 +8,7 @@ function Main() {
 
   useEffect(() => {
     if (localStorage.getItem('token') === null) {
-      window.location.replace('http://3.35.11.74/')
+      window.location.replace('http://3.35.11.74')
     }
   }, []);
 

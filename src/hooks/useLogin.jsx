@@ -25,7 +25,7 @@ const useLogin = () => {
             localStorage.clear()
             localStorage.setItem('id', res.data.id)
             localStorage.setItem('token', res.data.token)
-            window.location.replace('http://3.35.11.74:3000/Main')
+            window.location.replace('http://3.35.11.74/Main')
         })
         .catch((err) => {
             console.log(err)
