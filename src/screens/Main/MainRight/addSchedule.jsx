@@ -82,7 +82,7 @@ function AddSchedule(props){
             console.log(response);
             console.log('일정추가 post 성공');
             props.handleClose();
-            axios.get(`http://43.201.34.118:3306/infos/${localStorage.getItem('id')}/`,
+            axios.get(`http://43.201.34.118:3306/infos/${localStorage.getItem('id')}`,
             ).then((response) => {
                 console.log('<<infodata확인>>');
                 setInfoData(response.data);
