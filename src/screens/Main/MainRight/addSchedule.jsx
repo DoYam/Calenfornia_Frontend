@@ -7,6 +7,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import RenderCells  from "./Calendar.jsx";
 import { useRef } from 'react';
 import { format } from 'date-fns';
+import useSubject from '../../hooks/useSubject';
 
 function leftPad(value) {
     if (value >= 10) {
@@ -26,8 +27,8 @@ function leftPad(value) {
 
 function AddSchedule(props){
     const [subList, setSubjectData] = useState([]);
-    const [subjectId, setSubjectId] = useState(0);
-    const [professorId, setProfessorId] = useState(0);
+    // const [subjectId, setSubjectId] = useState(0);
+    // const [professorId, setProfessorId] = useState(0);
     const [classNum, setClassNum] = useState(0);
     const [category, setCategory] = useState(0)
     const [title, setTitle] = useState('');
@@ -35,6 +36,15 @@ function AddSchedule(props){
 
     let [infoData, setInfoData] = useState([]);
     let [targetDate, setTargetDate] = useState(new Date());
+
+    const {
+        checkSub, checkProf, checkClass,
+        subjectId, professorId, 
+        show, handleClose, handleShow, 
+        userSubject, allData,
+        subjectChange, professorChange, classNumChange,
+        refreshSubject, deleteSubject, addSubjectLabel
+    } = useSubject();
 
 
     useEffect(() => {
@@ -153,10 +163,17 @@ function AddSchedule(props){
                                 <label style={{fontWeight : 'bold', fontSize : '18px'}}>과목</label>
                                 <Form.Select className ={styled.select_box}  onChange={subjectHandler}>
                                     <option value="0">과목을 선택해주세요</option>
-                                    {
+                                    {/* {
                                         subList.map((subject, index) => {
                                             return (
                                                 <option value={index+1} key={subject["subject_title"]}>{subject["subject_title"]}</option>
+                                            );
+                                        })
+                                    } */}
+                                    {
+                                        allData.map((subject, index)=>{
+                                            return(
+                                                <option value={index + 1} key={subject['subject_title']}>{subject['subject_title']}</option>
                                             );
                                         })
                                     }
@@ -165,7 +182,7 @@ function AddSchedule(props){
                             <div style={{display: 'flex', justifyContent : 'space-between'}}>
                                 <label style={{fontWeight : 'bold', fontSize : '18px'}}>교수명</label>
                                 <Form.Select className ={styled.select_box} onChange={professorHandler}>
-                                    {
+                                    {/* {
                                         subjectId === 0
                                         ? <option value="0">교수님 선택</option>
                                         :
@@ -180,13 +197,31 @@ function AddSchedule(props){
                                                 })
                                             }
                                             </>
-                                    }
+                                    } */}
+
+                                {       
+                                    subjectId === 0
+                                    ? <option value="0">교수님 선택</option>
+                                    :
+                                        <>
+                                        <option value="0">교수님 선택</option>
+                                        {
+                                            
+                                            JSON.parse(allData[subjectId - 1]['professor']) && JSON.parse(allData[subjectId - 1]['professor'])
+                                            .map((professor, index)=>{
+                                                return(
+                                                    <option value={index + 1} key={professor}>{professor}</option>
+                                                );
+                                            })
+                                        }
+                                        </>
+                                }
                                 </Form.Select>
                             </div>
                             <div style={{display: 'flex', justifyContent : 'space-between'}}>
                                 <label style={{fontWeight : 'bold', fontSize : '18px'}}>분반</label>
                                 <Form.Select className ={styled.select_box} onChange={classNumHandler}>
-                                    {
+                                    {/* {
                                         subjectId === 0 || professorId === 0
                                             ? <option key="0" >분반을 선택해주세요</option>
                                             :
@@ -201,9 +236,27 @@ function AddSchedule(props){
                                                         })
                                                 }
                                             </>
+                                    } */}
+
+                                    {
+                                        subjectId === 0 || professorId === 0
+                                        ? <option value="0">분반 선택</option>
+                                        :
+                                        <>
+                                            <option value="0">분반 선택</option>
+                                            {
+                                                JSON.parse(allData[subjectId - 1]['classnum'])[professorId - 1] && JSON.parse(allData[subjectId - 1]['classnum'])[professorId - 1]
+                                                .map((classnum, index)=>{
+                                                    return(
+                                                        <option value={index + 1} key={classnum}>{classnum}</option>
+                                                    );
+                                                })
+                                            }
+                                        </>
                                     }
                                 </Form.Select>
                             </div>
+
                             <div style={{display: 'flex', justifyContent : 'space-between'}}>
                                 <label style={{fontWeight : 'bold', fontSize : '18px'}}>카테고리</label>
                                 <Form.Select className ={styled.select_box} onChange={categoryHandler}>
