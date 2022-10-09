@@ -7,7 +7,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import RenderCells  from "./Calendar.jsx";
 import { useRef } from 'react';
 import { format } from 'date-fns';
-import useSubject from '../../hooks/useSubject';
+// import useSubject from '../../hooks/useSubject';
 
 function leftPad(value) {
     if (value >= 10) {
@@ -27,8 +27,8 @@ function leftPad(value) {
 
 function AddSchedule(props){
     const [subList, setSubjectData] = useState([]);
-    // const [subjectId, setSubjectId] = useState(0);
-    // const [professorId, setProfessorId] = useState(0);
+    const [subjectId, setSubjectId] = useState(0);
+    const [professorId, setProfessorId] = useState(0);
     const [classNum, setClassNum] = useState(0);
     const [category, setCategory] = useState(0)
     const [title, setTitle] = useState('');
@@ -37,14 +37,14 @@ function AddSchedule(props){
     let [infoData, setInfoData] = useState([]);
     let [targetDate, setTargetDate] = useState(new Date());
 
-    const {
-        checkSub, checkProf, checkClass,
-        subjectId, professorId, 
-        show, handleClose, handleShow, 
-        userSubject, allData,
-        subjectChange, professorChange, classNumChange,
-        refreshSubject, deleteSubject, addSubjectLabel
-    } = useSubject();
+    // const {
+    //     checkSub, checkProf, checkClass,
+    //     subjectId, professorId, 
+    //     show, handleClose, handleShow, 
+    //     userSubject, allData,
+    //     subjectChange, professorChange, classNumChange,
+    //     refreshSubject, deleteSubject, addSubjectLabel
+    // } = useSubject();
 
 
     useEffect(() => {
