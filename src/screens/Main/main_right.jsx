@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import style from './main.module.css';
 import Calendar from './MainRight/Calendar.jsx';
-import logout from '../../components/Auth/logout_func';
+import logout from '../../components/auth/logout_func';
 import Guide from '../../components/guide/guide';
 
 function MainRightScreen () {

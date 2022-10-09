@@ -98,6 +98,7 @@ const useSubject = () => {
     }, []);
 
     return {
+        setSubjectID, setProfessorID,
         checkSub, checkProf, checkClass,
         subjectId, professorId, 
         show, handleClose, handleShow, 
