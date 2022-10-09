@@ -16,6 +16,7 @@ function leftPad(value) {
 }
 
 function format(source, delimiter) {
+    const delimiter ='-';
     const year = source.getFullYear();
     const month = leftPad(source.getMonth() + 1);
     const day = source.getDate();
@@ -135,9 +136,9 @@ function AddSchedule(props){
     };
 
     const classNumHandler = (e) => {
-        var idx = e.target.value;
-        setClassNum(Number(subList[subjectId-1]['classnum'][professorId-1][idx-1]));
-        // setClassNum(e.target.value);
+        // var idx = e.target.value;
+        // setClassNum(Number(subList[subjectId-1]['classnum'][professorId-1][idx-1]));
+        setClassNum(e.target.value);
         // console.log(classNum);
     };
 
