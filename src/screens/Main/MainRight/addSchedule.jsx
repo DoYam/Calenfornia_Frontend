@@ -71,15 +71,6 @@ function AddSchedule(props){
         
         console.log('targetdate 형식 보기');
         console.log(targetDate);
-        
-        setSubjectId(0);
-        setProfessorId(0);
-        setClassNum(0);
-        setCategory(0);
-        setTargetDate(new Date());
-        setTitle('');
-        setDescription('');
-
 
         axios.post("http://43.201.34.118:3306/info/",
           { 
@@ -108,6 +99,14 @@ function AddSchedule(props){
                 console.log('<<infodata확인>>');
                 setInfoData(response.data);
                 console.log(infoData);
+
+                setSubjectId(0);
+                setProfessorId(0);
+                setClassNum(0);
+                setCategory(0);
+                setTargetDate(new Date());
+                setTitle('');
+                setDescription('');
             }
             ).catch(
 
