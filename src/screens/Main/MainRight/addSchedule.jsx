@@ -16,13 +16,13 @@ function leftPad(value) {
     return `0${value}`;
 }
 
-// function format(source, delimiter = '-') {
-//     const year = source.getFullYear();
-//     const month = source.getMonth() + 1;
-//     const day = source.getDate();
+function format(source, delimiter) {
+    const year = source.getFullYear();
+    const month = leftPad(source.getMonth() + 1);
+    const day = source.getDate();
 
-//     return [year, month, day].join(delimiter);
-// }
+    return [year, month, day].join(delimiter);
+}
 
 
 function AddSchedule(props){
@@ -68,8 +68,8 @@ function AddSchedule(props){
 
 
     const postThings = ()  => {
-        targetDate = targetDate.toDateString();
-
+        targetDate = format(targetDate, '/');
+        
         console.log('targetdate 형식 보기');
         console.log(targetDate);
         
