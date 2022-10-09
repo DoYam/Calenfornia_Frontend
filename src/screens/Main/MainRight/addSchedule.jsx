@@ -135,8 +135,7 @@ function AddSchedule(props){
     };
 
     const classNumHandler = (e) => {
-        var idx = e.target.value;
-        setClassNum(Number(subList[subjectId-1]['classnum'][professorId-1][idx-1]));
+        setClassNum(Number(e.target.value));
         // setClassNum(e.target.value);
         // console.log(classNum);
     };
