@@ -34,6 +34,8 @@ function AddSchedule(props){
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
 
+    // const [allData, setAllData] = useState([]);
+
     let [infoData, setInfoData] = useState([]);
     let [targetDate, setTargetDate] = useState(new Date());
 
@@ -45,8 +47,24 @@ function AddSchedule(props){
         axios.get("http://43.201.34.118:3306/subject/")
         .then((response)=> {
             setSubjectData(response.data);
+            // axios.get("http://43.201.34.118:3306/subject")
+            // .then((response)=> {
+            //     setAllData(response.data);
+            // }).catch()
         }).catch()
     }, []);
+
+    // useEffect(() => {
+    //     axios.get("http://43.201.34.118:3306/subject")
+    //     .then((response)=> {
+    //         setAllData(response.data)
+    //         axios.get(`http://43.201.34.118:3306/usersubject/${localStorage.getItem('id')}`)
+    //         .then((response)=> {
+    //             console.log(response.data)
+    //             setUserSubject(response.data)
+    //         }).catch()
+    //     }).catch()
+    // }, []);
 
 
     const postThings = ()  => {
@@ -165,7 +183,7 @@ function AddSchedule(props){
                                         })
                                     } */}
                                     {
-                                        allData.map((subject, index)=>{
+                                        subList.map((subject, index)=>{
                                             return(
                                                 <option value={index + 1} key={subject['subject_title']}>{subject['subject_title']}</option>
                                             );
@@ -201,7 +219,7 @@ function AddSchedule(props){
                                         <option value="0">교수님 선택</option>
                                         {
                                             
-                                            JSON.parse(allData[subjectId - 1]['professor']) && JSON.parse(allData[subjectId - 1]['professor'])
+                                            JSON.parse(subList[subjectId - 1]['professor']) && JSON.parse(subList[subjectId - 1]['professor'])
                                             .map((professor, index)=>{
                                                 return(
                                                     <option value={index + 1} key={professor}>{professor}</option>
@@ -239,7 +257,7 @@ function AddSchedule(props){
                                         <>
                                             <option value="0">분반 선택</option>
                                             {
-                                                JSON.parse(allData[subjectId - 1]['classnum'])[professorId - 1] && JSON.parse(allData[subjectId - 1]['classnum'])[professorId - 1]
+                                                JSON.parse(subList[subjectId - 1]['classnum'])[professorId - 1] && JSON.parse(subList[subjectId - 1]['classnum'])[professorId - 1]
                                                 .map((classnum, index)=>{
                                                     return(
                                                         <option value={index + 1} key={classnum}>{classnum}</option>
