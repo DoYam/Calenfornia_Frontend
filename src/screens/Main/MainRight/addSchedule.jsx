@@ -6,7 +6,6 @@ import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css';
 import RenderCells  from "./Calendar.jsx";
 import { useRef } from 'react';
-import { format } from 'date-fns';
 import useSubject from '../../../hooks/useSubject';
 
 function leftPad(value) {
@@ -68,14 +67,8 @@ function AddSchedule(props){
 
 
     const postThings = ()  => {
-<<<<<<< HEAD
         targetDate = format(targetDate, '/');
         
-=======
-        // targetDate = targetDate.toDateString();
-        targetDate = format(targetDate, "yyyy-MM-dd");
-
->>>>>>> 706ef7481ad7dad4722cf9fbac8609ee3a23ca77
         console.log('targetdate 형식 보기');
         console.log(targetDate);
         
