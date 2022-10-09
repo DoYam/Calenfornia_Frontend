@@ -68,7 +68,7 @@ function AddSchedule(props){
 
 
     const postThings = ()  => {
-        targetDate = format(targetDate, String);
+        targetDate = targetDate.toDateString();
 
         console.log('targetdate 형식 보기');
         console.log(targetDate);
