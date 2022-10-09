@@ -16,7 +16,6 @@ function leftPad(value) {
 }
 
 function format(source, delimiter) {
-    const delimiter ='-';
     const year = source.getFullYear();
     const month = leftPad(source.getMonth() + 1);
     const day = source.getDate();
@@ -68,7 +67,7 @@ function AddSchedule(props){
 
 
     const postThings = ()  => {
-        targetDate = format(targetDate, '/');
+        targetDate = format(targetDate, '-');
         
         console.log('targetdate 형식 보기');
         console.log(targetDate);
