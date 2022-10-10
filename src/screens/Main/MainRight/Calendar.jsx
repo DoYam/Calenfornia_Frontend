@@ -64,9 +64,9 @@ const RenderCells = ({currentMonth, info}) => {
                 console.log("버튼 클릭시 조회");
                 console.log(response.data);
                 setTarget(response.data);
-                setSubject(subList[response.data.info.subject_id - 1]['subject_title']);
-                setProfessor(JSON.parse(subList[response.data.info.subject_id - 1]['professor'][response.data.info.professor_id - 1]));
-                setClassnum(JSON.parse(subList[response.data.info.subject_id - 1]['classnum'][response.data.info.professor_id - 1][response.data.info.classnum - 1]));
+                setSubject(subList[response.data.subject_id - 1]['subject_title']);
+                setProfessor(JSON.parse(subList[response.data.subject_id - 1]['professor'][response.data.professor_id - 1]));
+                setClassnum(JSON.parse(subList[response.data.subject_id - 1]['classnum'][response.data.professor_id - 1][response.data.classnum - 1]));
             })
             .catch();
         
