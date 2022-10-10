@@ -65,8 +65,8 @@ const RenderCells = ({currentMonth, info}) => {
                 console.log(response.data);
                 setTarget(response.data);
                 setSubject(subList[response.data.subject_id - 1]['subject_title']);
-                setProfessor(JSON.parse(subList[response.data.subject_id - 1]['professor'][response.data.professor_id - 1]));
-                setClassnum(JSON.parse(subList[response.data.subject_id - 1]['classnum'][response.data.professor_id - 1][response.data.classnum - 1]));
+                setProfessor(JSON.parse(subList[response.data.subject_id - 1]['professor'])[response.data.professor_id - 1]);
+                setClassnum(JSON.parse(subList[response.data.subject_id - 1]['classnum'])[response.data.professor_id - 1][response.data.classnum - 1]);
             })
             .catch();
         
