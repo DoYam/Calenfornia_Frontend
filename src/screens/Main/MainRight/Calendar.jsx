@@ -90,6 +90,8 @@ const RenderCells = ({currentMonth, info}) => {
     const dayWeek = [];
     const date = ['Sunday', 'Monday', 'Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
+    const susetColor = ['#F5751C', '#FFAB72', '#FEBA95', '#FFD6AA', '#F9E1D5', '#EDDED9', '#ABB0B6', '#949F97']
+
     dayWeek.push( <td className ="col" style={{color : 'red'}} key={0}>{date[0]}</td>);
     for ( let i=1; i<7; i++){
         dayWeek.push (

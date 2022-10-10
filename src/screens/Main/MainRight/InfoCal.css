@@ -3,11 +3,11 @@
     left: 80%;
 
     width: 100px;
-    height: 26px;
+    height: 35px;
 
     font-weight: 700;
     font-size: 18px;
-
+    border-radius: 5px;
     color: #FFAB72;
     background-color : transparent;
     border: none;
@@ -81,6 +81,7 @@
     width: 250px;
     height: 110px;
     margin: 5px;
+    padding: 3px;
     float: right;
 }
 
@@ -89,4 +90,3 @@ label {
     vertical-align: top;
     color: gray;
 }
-
