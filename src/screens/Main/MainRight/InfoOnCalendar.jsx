@@ -42,16 +42,17 @@ const InfoOnCalendar = (props) => {
                         </div>
                         <div>
                             <Form.Label>과목명</Form.Label>
-                            <span className='contents'>{subList[props.info['subject_id'] - 1]["id"]}</span>
+                            <span className='contents'>{props.info['subject_id']}</span>
+                            {/* <span className='contents'>{subList[props.info.subject_id - 1]['subject_title']}</span> */}
                         </div>
                         <div>
                             <Form.Label>교수명</Form.Label>
-                            <span className='contents'>{props.info['subject_id']}</span>
+                            <span className='contents'>{props.info['professor_id']}</span>
                             {/* <span className='contents'>{JSON.parse(subList[props.info.subject_id - 1 - 1]['professor'][props.info.professor_id - 1])}</span> */}
                         </div>
                         <div>
                             <Form.Label>분반</Form.Label>
-                            <span className='contents'>{props.info['subject_id']}</span>
+                            <span className='contents'>{props.info['classnum']}</span>
                             {/* <span className='contents'>{JSON.parse(subList[props.info.subject_id - 1 - 1]['classnum'][props.info.professor_id - 1][props.info.classnum - 1])}</span> */}
                         </div>
                         <div>
