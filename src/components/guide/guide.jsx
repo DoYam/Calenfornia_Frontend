@@ -3,6 +3,7 @@ import style from './guide.module.css';
 import { Modal } from 'react-bootstrap';
 import guide0 from '../../assets/images/guide0.svg';
 import guide1 from '../../assets/images/guide1.png';
+import guide3 from '../../assets/images/guide3.png';
 
 const Information = (props) => {
     return(
@@ -49,7 +50,7 @@ const Guide = (props) => {
                     />
                     <Information 
                         num={4} 
-                        image={guide0} 
+                        image={guide3} 
                         content={`캘린더에 수업에 대한 일정을 추가할 수 있습니다! 수업 일정을 추가할 때
                         여러 사람들을 위해 정확한 정보가 맞는지 확인 후 게시해주세요! 여러분께서 남겨주신 
                         일정들(과목, 교수, 분반이 일치하는)을 수강하는 학생들은 열람, 수정 가능하도록 공유됩니다.`}
