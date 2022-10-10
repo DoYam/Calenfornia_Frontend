@@ -14,7 +14,7 @@ const InfoOnCalendar = (props) => {
     useEffect(() => {
         axios.get("http://43.201.34.118:3306/subject/")
         .then((response)=> {
-            console.log(response.data[s_id - 1]);
+            console.log(response.data[props.info.subject_id - 1]);
             setSubjectData(response.data);
         }).catch()
     }, []);
