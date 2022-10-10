@@ -15,7 +15,7 @@ const InfoOnCalendar = (props) => {
         >
             <Modal.Header closeButton>
                 {/* <Modal.Title>info창입니다</Modal.Title> */}
-                <button className='button'>수정하기</button>
+                <button className='fixBtn'>수정하기</button>
                 {/* <div>아이디 = {props.info.id}</div> */}
             </Modal.Header>
             <Modal.Body>
