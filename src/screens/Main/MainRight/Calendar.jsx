@@ -44,6 +44,11 @@ const RenderCells = ({currentMonth, info}) => {
     const [id, setId] = useState(-1);
     const [targetInfo, setTarget] = useState([]);
 
+    const [subList, setSubjectData] = useState([]);
+
+    const [subject, setSubject] = useState("");
+    const [professor, setProfessor] = useState("");
+    const [classnum, setClassnum] = useState(0);
 
     const handleClose = () => {
         setShow(false);
@@ -59,10 +64,20 @@ const RenderCells = ({currentMonth, info}) => {
                 console.log("버튼 클릭시 조회");
                 console.log(response.data);
                 setTarget(response.data);
+                setSubject(subList[response.data.info.subject_id - 1]['subject_title']);
+                setProfessor(JSON.parse(subList[response.data.info.subject_id - 1]['professor'][response.data.info.professor_id - 1]));
+                setClassnum(JSON.parse(subList[response.data.info.subject_id - 1]['classnum'][response.data.info.professor_id - 1][response.data.info.classnum - 1]));
             })
             .catch();
         
     }
+
+    useEffect(() => {
+        axios.get("http://43.201.34.118:3306/subject/")
+        .then((response)=> {
+            setSubjectData(response.data);
+        }).catch()
+    }, []);
 
 
     // function leftPad(value) {
@@ -177,7 +192,7 @@ const RenderCells = ({currentMonth, info}) => {
                                                 <button className='info-box' onClick={() => {handleShow(t.id)}}>
                                                     {t.title}
                                                 </button>
-                                                <InfoOnCalendar show={show} handleClose={handleClose} info={targetInfo} />
+                                                <InfoOnCalendar show={show} handleClose={handleClose} info={targetInfo} subject={subject} professor={professor} classnum={classnum}/>
                                             </div>
                                            
                                         )

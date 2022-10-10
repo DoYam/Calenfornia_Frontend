@@ -1,19 +1,9 @@
-import React, { useEffect , useState} from 'react';
+import React from 'react';
 import { Form, Modal } from 'react-bootstrap';
-import axios from 'axios';
 import './InfoCal.css';
 
 const InfoOnCalendar = (props) => {
-    const [subList, setSubjectData] = useState([]);
     // const [infoList, setInfoList] = useState([]);
-
-    useEffect(() => {
-        axios.get("http://43.201.34.118:3306/subject/")
-        .then((response)=> {
-            console.log(props.info['subject_id']);
-            setSubjectData(response.data);
-        }).catch()
-    }, []);
 
     return (
         <>
@@ -43,18 +33,15 @@ const InfoOnCalendar = (props) => {
                         </div>
                         <div>
                             <Form.Label>과목명</Form.Label>
-                            <span className='contents'>{props.info['subject_id']}</span>
-                            {/* <span className='contents'>{subList[props.info.subject_id - 1]['subject_title']}</span> */}
+                            <span className='contents'>{props.subject}</span>
                         </div>
                         <div>
                             <Form.Label>교수명</Form.Label>
-                            <span className='contents'>{props.info['professor_id']}</span>
-                            {/* <span className='contents'>{JSON.parse(subList[props.info.subject_id - 1 - 1]['professor'][props.info.professor_id - 1])}</span> */}
+                            <span className='contents'>{props.professor}</span>
                         </div>
                         <div>
                             <Form.Label>분반</Form.Label>
-                            <span className='contents'>{props.info['classnum']}</span>
-                            {/* <span className='contents'>{JSON.parse(subList[props.info.subject_id - 1 - 1]['classnum'][props.info.professor_id - 1][props.info.classnum - 1])}</span> */}
+                            <span className='contents'>{props.classnum}</span>
                         </div>
                         <div>
                             <Form.Label>카테고리</Form.Label>
