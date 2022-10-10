@@ -42,7 +42,7 @@ const InfoOnCalendar = (props) => {
                         </div>
                         <div>
                             <Form.Label>과목명</Form.Label>
-                            <span className='contents'>{subList[props.info['subject_id'] - 1]}</span>
+                            <span className='contents'>{subList[props.info['subject_id'] - 1]["id"]}</span>
                         </div>
                         <div>
                             <Form.Label>교수명</Form.Label>
