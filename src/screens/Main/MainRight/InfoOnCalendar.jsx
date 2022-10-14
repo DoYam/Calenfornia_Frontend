@@ -12,7 +12,6 @@ const InfoOnCalendar = (props) => {
         onHide={props.handleClose}
         size="lg"
         centered
-        backdrop='false'
         >
             <Modal.Header closeButton>
                 {/* <Modal.Title>info창입니다</Modal.Title> */}
