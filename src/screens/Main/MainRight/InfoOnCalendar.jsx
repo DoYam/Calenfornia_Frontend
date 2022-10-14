@@ -12,6 +12,7 @@ const InfoOnCalendar = (props) => {
         onHide={props.handleClose}
         size="lg"
         centered
+        backdrop='false'
         >
             <Modal.Header closeButton>
                 {/* <Modal.Title>info창입니다</Modal.Title> */}
@@ -59,12 +60,8 @@ const InfoOnCalendar = (props) => {
                     <Form.Group className='right'>
                         <Form.Label>추가 정보</Form.Label>
                     </Form.Group>
-                </Form>
-                
+                </Form>  
             </Modal.Body>
-            <div>
-                
-            </div>
         </Modal>
         </>
     );
