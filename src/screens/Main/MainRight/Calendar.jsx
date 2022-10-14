@@ -155,7 +155,7 @@ const RenderCells = ({currentMonth, info}) => {
                             <div style={{background:'#FFAB72', color : 'white', borderRadius : '100%', width : '35px', textAlign : 'center'}}>
                             {formattedDate}</div>
                             <div>
-                                <div>
+                                <div className='modal-back'>
                                 {/* 일정 추가 부분-1 */}
                                 {
                                     info.map((t)=>{
