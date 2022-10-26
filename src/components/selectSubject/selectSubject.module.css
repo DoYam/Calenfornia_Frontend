@@ -68,10 +68,11 @@
 }
 .Xbutton{
     border : none;
-    font-family : 'initial'; 
-    text-align : 'center';
-    vertical-align: 'middle';
-    color : 'white';
-    font-weight : 'bold';
-    margin-left :'5px';
+    font-family : initial; 
+    text-align : center;
+    vertical-align: middle;
+    color : white;
+    background-color: transparent;
+    font-weight : bold;
+    margin-left : 5px;
 }

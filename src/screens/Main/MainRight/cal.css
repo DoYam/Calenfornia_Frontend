@@ -109,9 +109,6 @@ table {
     width: 100%;
     font-size: 18px;
     text-align: left;
-    
-    /* background-color: transparent; */
-    border: 1px;
-    border-color: #FFAB72;
+    border: 1px solid #FFAB72;
 }
 
